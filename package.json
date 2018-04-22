@@ -1,0 +1,7 @@
+{
+  "name": "teachermate-auto-check-in",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/taoweicn/teachermate-auto-check-in.git",
+  "license": "MIT"
+}
