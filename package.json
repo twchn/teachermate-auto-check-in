@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/taoweicn/teachermate-auto-check-in.git",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.85.0"
+  }
 }
