@@ -1,15 +1,16 @@
 const { createRequest } = require('../utils/util');
-const { question } = require('./readline');
+const { question } = require('../utils/readline');
 const delay = require('../utils/delay');
 const getCourseId = require('./getCourseId');
 const getOpenid = require('./getOpenid');
+const updateOpenid = require('./updateOpenid');
 
 async function checkin() {
   let openid = '';
   let delayTime = 2000;  // 每次尝试签到的延迟时间
   let inputDelayTime;
   try {
-    openid = await getOpenid('请输入openid：');
+    openid = await getOpenid();
     inputDelayTime = await question('请输入每次尝试签到的延迟时间（ms）：');
     if (inputDelayTime) {
       delayTime = parseInt(inputDelayTime, 10);
@@ -25,7 +26,7 @@ async function checkin() {
     await delay(delayTime);
     courseId = await getCourseId(openid);
     if (courseId.statusCode === 401) {
-      openid = await getOpenid('请重新获取openid并输入：');
+      openid = await updateOpenid('请重新获取openid并输入：');
     }
   } while (!courseId.data);
 

@@ -1,14 +1,13 @@
-const { question } = require('./readline');
+const fs = require('fs');
+const updateOpenid = require('./updateOpenid');
 
-async function getOpenid(prompt = '请输入openid：') {
-  let openid = '';
-  do {
-    openid = await question(prompt);
-    if (!openid) {
-      console.log('openid不能为空，请重新输入！');
-    }
-  } while (!openid);
-  return openid;
+async function getOpenid() {
+  if (!fs.existsSync('../data')) {
+    fs.mkdirSync('../data');
+    return updateOpenid();
+  }
+  const file = fs.readFileSync('../data/openid.json');
+  return file ? JSON.parse(file).openid : updateOpenid();
 }
 
 module.exports = getOpenid;
