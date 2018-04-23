@@ -4,6 +4,7 @@ const delay = require('../utils/delay');
 const getCourseId = require('./getCourseId');
 const getOpenid = require('./getOpenid');
 const updateOpenid = require('./updateOpenid');
+const logger = require('../utils/logger');
 
 async function checkin() {
   let openid = '';
@@ -26,6 +27,7 @@ async function checkin() {
     await delay(delayTime);
     courseId = await getCourseId(openid);
     if (courseId.statusCode === 401) {
+      logger(`${new Date().toLocaleString()} openid: ${openid} 失效\n`);
       openid = await updateOpenid('请重新获取openid并输入：');
     }
   } while (!courseId.data);

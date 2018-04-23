@@ -21,7 +21,7 @@ async function getCourseId(openid) {
         const redirectUrl  = res.headers.location;
         return { statusCode: res.statusCode, data:querystring.parse(redirectUrl.split('?')[1])['course_id'] };
       case 401:
-        console.log('openid已失效！');
+        console.log(`openid${openid}已失效！`);
         return { statusCode: res.statusCode};
       default:
         console.log(res.statusCode, ' 获取课程id失败！');
