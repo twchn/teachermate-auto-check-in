@@ -16,18 +16,19 @@ async function getCourseId(openid) {
     switch (res.statusCode) {
       case 200:
         console.log('签到未开启！');
-        break;
+        return { statusCode: res.statusCode };
       case 302:
         const redirectUrl  = res.headers.location;
-        return querystring.parse(redirectUrl.split('?')[1])['course_id'];
+        return { statusCode: res.statusCode, data:querystring.parse(redirectUrl.split('?')[1])['course_id'] };
       case 401:
         console.log('openid已失效！');
-        break;
+        return { statusCode: res.statusCode};
       default:
         console.log(res.statusCode, ' 获取课程id失败！');
+        return { statusCode: res.statusCode };
     }
   } catch(e) {
-    console.log(e.message);
+    console.log(e);
   }
 }
 

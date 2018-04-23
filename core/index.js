@@ -1,14 +1,11 @@
 const checkin = require('./checkin');
 
-const openid = '3256bdd1dc8d743e88c56f3d24cb9bcb';
-const delayTime = 2000;  // 每次尝试签到的延迟时间
-
 main();
 
 async function main() {
   let body;
   do {
-    body = JSON.parse(await checkin(openid, delayTime));
+    body = JSON.parse(await checkin());
   } while (!body);
 
   for (const i in body) {

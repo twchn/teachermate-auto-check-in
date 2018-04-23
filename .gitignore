@@ -1,9 +1,6 @@
 # Dependency directory
 node_modules/
 
-# Production
-dist/
-
 # Logs
 *.log
 npm-debug.log*
