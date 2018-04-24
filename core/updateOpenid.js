@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const { question } = require('../utils/readline');
 
 async function updateOpenid(prompt = '请输入openid：') {
@@ -9,7 +10,7 @@ async function updateOpenid(prompt = '请输入openid：') {
       console.log('openid不能为空，请重新输入！');
     }
   } while (!openid);
-  fs.writeFile('../data/openid.json', JSON.stringify({ openid }), err => {
+  fs.writeFile(path.resolve(__dirname, '../data/openid.json'), JSON.stringify({ openid }), err => {
     if (err) {
       throw err;
     }

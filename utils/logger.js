@@ -1,10 +1,11 @@
 const fs = require('fs');
+const path = require('path');
 
 function logger(data) {
-  if (!fs.existsSync('../log')) {
-    fs.mkdirSync('../log');
+  if (!fs.existsSync(path.resolve(__dirname, '../log'))) {
+    fs.mkdirSync(path.resolve(__dirname, '../log'));
   }
-  fs.appendFile('../log/log.txt', data, err => {
+  fs.appendFile(path.resolve(__dirname, '../log/log.txt'), data, err => {
     if (err) {
       throw err;
     }

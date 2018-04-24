@@ -1,4 +1,4 @@
-const request = require('request');
+const request = require('request').defaults({ jar: true });
 const querystring = require('querystring');
 
 function randomUserAgent() {
