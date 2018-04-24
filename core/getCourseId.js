@@ -1,5 +1,5 @@
 const querystring = require('querystring');
-const { createRequest } = require('../utils/util');
+const createRequest = require('../utils/createRequest');
 
 async function getCourseId(openid) {
   try {

@@ -1,9 +1,12 @@
 {
   "name": "teachermate-auto-check-in",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "repository": "https://github.com/taoweicn/teachermate-auto-check-in.git",
   "license": "MIT",
+  "scripts": {
+    "start": "node core/index.js"
+  },
   "dependencies": {
     "request": "^2.85.0"
   }

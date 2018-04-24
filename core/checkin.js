@@ -1,9 +1,10 @@
-const { createRequest } = require('../utils/util');
-const { question } = require('../utils/readline');
-const delay = require('../utils/delay');
 const getCourseId = require('./getCourseId');
-const getOpenid = require('./getOpenid');
+const createRequest = require('../utils/createRequest');
+const delay = require('../utils/delay');
+const getData = require('../utils/getData');
 const updateOpenid = require('./updateOpenid');
+const updateDelayTime = require('./updateDelayTime');
+const updateLocation = require('./updateLocation');
 const logger = require('../utils/logger');
 
 async function checkin() {
@@ -12,16 +13,13 @@ async function checkin() {
   let lon = 0;  // 经度
   let lat = 0;  // 纬度
   try {
-    openid = await getOpenid();
-    const inputDelayTime = parseInt(await question('[可选]请输入每次尝试签到的延迟时间（ms)：'), 10);
-    delayTime = inputDelayTime >= 0 ? inputDelayTime : 2000;
-    const inputLocation = await question('[可选]请输入位置(经度 纬度)：');
-    const inputLon = parseInt(inputLocation.split(' ')[0], 10);
-    const inputLat = parseInt(inputLocation.split(' ')[1], 10);
-    lon = inputLon >= 0 ? inputLon : 0;
-    lat = inputLat >= 0 ? inputLat : 0;
+    openid = await getData('openid', updateOpenid);
+    delayTime = await getData('delayTime', updateDelayTime);
+    const location = await getData('location', updateLocation);
+    lon = location.lon;
+    lat = location.lat;
   } catch (e) {
-    console.log(e);
+    console.error(e);
     return;
   }
 

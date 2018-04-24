@@ -50,6 +50,4 @@ function createRequest(
   });
 }
 
-module.exports = {
-  createRequest
-};
+module.exports = createRequest;

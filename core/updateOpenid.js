@@ -1,20 +1,19 @@
-const fs = require('fs');
-const path = require('path');
 const { question } = require('../utils/readline');
+const store = require('../utils/store');
 
 async function updateOpenid(prompt = '请输入openid：') {
   let openid = '';
-  do {
-    openid = await question(prompt);
-    if (!openid) {
-      console.log('openid不能为空，请重新输入！');
-    }
-  } while (!openid);
-  fs.writeFile(path.resolve(__dirname, '../data/openid.json'), JSON.stringify({ openid }), err => {
-    if (err) {
-      throw err;
-    }
-  });
+  try {
+    do {
+      openid = await question(prompt);
+      if (!openid) {
+        console.log('openid不能为空，请重新输入！');
+      }
+    } while (!openid);
+  } catch (e) {
+    console.log(e);
+  }
+  store({ openid });
   return openid;
 }
 
