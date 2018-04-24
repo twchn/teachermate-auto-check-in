@@ -8,14 +8,18 @@ const logger = require('../utils/logger');
 
 async function checkin() {
   let openid = '';
-  let delayTime = 2000;  // 每次尝试签到的延迟时间
-  let inputDelayTime;
+  let delayTime = 0;  // 每次尝试签到的延迟时间
+  let lon = 0;  // 经度
+  let lat = 0;  // 纬度
   try {
     openid = await getOpenid();
-    inputDelayTime = await question('请输入每次尝试签到的延迟时间（ms）：');
-    if (inputDelayTime) {
-      delayTime = parseInt(inputDelayTime, 10);
-    }
+    const inputDelayTime = parseInt(await question('[可选]请输入每次尝试签到的延迟时间（ms)：'), 10);
+    delayTime = inputDelayTime >= 0 ? inputDelayTime : 2000;
+    const inputLocation = await question('[可选]请输入位置(经度 纬度)：');
+    const inputLon = parseInt(inputLocation.split(' ')[0], 10);
+    const inputLat = parseInt(inputLocation.split(' ')[1], 10);
+    lon = inputLon >= 0 ? inputLon : 0;
+    lat = inputLat >= 0 ? inputLat : 0;
   } catch (e) {
     console.log(e);
     return;
@@ -41,8 +45,8 @@ async function checkin() {
       {
         openid,
         course_id: courseId.data,
-        lon: 0,
-        lat: 0,
+        lon,
+        lat,
         wx_csrf_name: '688f1b52953ca0c458e9b8624356ac1b'
       }
     );
