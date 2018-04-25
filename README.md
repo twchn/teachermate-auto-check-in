@@ -21,7 +21,7 @@
 
 **2. 运行程序**
 
-请首先安装[nodejs](https://nodejs.org)并确保版本 >= 7.6.0。
+首先请安装[nodejs](https://nodejs.org)并确保版本 >= 7.6.0。
 
 ```bash
 git clone https://github.com/taoweicn/teachermate-auto-check-in.git  # or download zip
@@ -33,9 +33,9 @@ npm start  # or use yarn
 - Windows用户开启终端方法：按住shift同时单击鼠标右键选择打开powershell。
 - 第一次运行程序时请注意输入openid，签到时延（每次尝试签到的间隔时间）和位置（经度和纬度，空格分隔）。
 - 程序开启后请不要在微助教公众号里点击任何链接，否则会刷新openid导致原openid失效，这时需要重新输入openid。
-- 如果课堂开启了GPS位置签到而又没输入位置，后台只会在签到开启时显示定位失败，签到关闭后并没有显示相关信息。
-- 签到一门课成功后会在5分钟后自动开启下一轮尝试。
-- 日志文件在log文件夹下。
+- 如果课堂开启了GPS定位签到而又没输入位置，后台只会在签到开启后显示定位失败，签到关闭后并没有显示相关信息。
+- 签到一门课成功后会在5分钟后自动继续下一轮尝试。
+- 日志文件在log文件夹下的log.txt，参数配置在data文件夹下的data.json。
 
 ## 原理
 
