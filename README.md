@@ -13,11 +13,15 @@
 
 **1. 获取账户的openid**
 
+![获取账户openid](docs/guide.png)
 
+提取所复制链接中的openid即可。
+
+请注意如果再次点击公众号内的链接，会重新生成新的openid，旧的openid会失效。
 
 **2. 运行程序**
 
-请首先安装[nodejs](https://nodejs.org)并确保版本 >= 8。
+请首先安装[nodejs](https://nodejs.org)并确保版本 >= 7.6.0。
 
 ```bash
 git clone https://github.com/taoweicn/teachermate-auto-check-in.git  # or download zip
@@ -59,7 +63,7 @@ npm start  # or use yarn
 
 ## 问题反馈
 
-在[这里]()提问或者在[这里]()帮助我完善这个程序。
+在[这里](https://github.com/taoweicn/teachermate-auto-check-in/issues)提问或者在[这里](https://github.com/taoweicn/teachermate-auto-check-in/pulls)帮助我完善这个程序。
 
 ## TODO
 
