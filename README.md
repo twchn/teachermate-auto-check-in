@@ -41,7 +41,7 @@ npm start  # or use yarn
 
 微助教签到流程
 
-![微助教签到流程](docs\teachermate_auto_check_in.png)
+![微助教签到流程](docs/teachermate_auto_check_in.png)
 
 本质上是不断向服务器发起签到请求，一旦有课程开启了签到就会自动完成签到。
 

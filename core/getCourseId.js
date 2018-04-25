@@ -10,7 +10,7 @@ async function getCourseId(openid) {
       { openid }
     );
     if (error) {
-      console.log(error);
+      console.error(error);
       return;
     }
     switch (res.statusCode) {
@@ -19,7 +19,7 @@ async function getCourseId(openid) {
         return { statusCode: res.statusCode };
       case 302:
         const redirectUrl  = res.headers.location;
-        return { statusCode: res.statusCode, data:querystring.parse(redirectUrl.split('?')[1])['course_id'] };
+        return { statusCode: res.statusCode, data: querystring.parse(redirectUrl.split('?')[1])['course_id'] };
       case 401:
         console.log(`openid${openid}已失效！`);
         return { statusCode: res.statusCode};
