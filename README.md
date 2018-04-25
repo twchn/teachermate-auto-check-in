@@ -47,9 +47,9 @@ npm start  # or use yarn
 
 程序运行流程如下：
 
-1. 每隔一定时延（可手动设置时延长短）向服务器发送sign_in的请求，如果有课程开启签到，会返回302，通过读取headers里的location来获取课程id
-2. 再次向服务器发送student-sign-in的请求来完成签到
-3. 若返回的响应中出现401则会提示重新获取openid
+1. 每隔一定时延（可手动设置时延长短）向服务器发送signin的请求，如果有课程开启签到，会返回302，通过读取headers里的location来获取课程id。
+2. 再次向服务器发送student-sign-in的请求来完成签到。
+3. 若返回的响应中出现401则会提示重新获取openid。
 
 ## API参考
 
