@@ -23,7 +23,7 @@
 
 首先请安装[nodejs](https://nodejs.org)并确保版本 >= 7.6.0。
 
-在终端里输入以下命令。
+在终端里输入以下命令：
 
 ```bash
 git clone https://github.com/taoweicn/teachermate-auto-check-in.git  # or download zip
@@ -31,7 +31,7 @@ cd teachermate-auto-check-in  # or open the directory manually
 npm i
 npm start  # or use yarn
 ```
-第一次输入参数并运行成功后，可退出程序再使用`nohup`命令或者[pm2](http://pm2.keymetrics.io/)等工具后台执行`npm start`。
+第一次输入参数并运行成功后，可退出程序再使用`nohup`命令或者[pm2](http://pm2.keymetrics.io/)等工具执行`npm start`来后台运行程序。
 
 注：
 
