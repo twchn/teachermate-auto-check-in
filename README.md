@@ -31,7 +31,7 @@ cd teachermate-auto-check-in  # or open the directory manually
 npm i
 npm start  # or use yarn
 ```
-第一次输入参数并运行成功后，可退出程序再使用`nohup`或者pm2等工具后台执行`npm start`。
+第一次输入参数并运行成功后，可退出程序再使用`nohup`命令或者[pm2](http://pm2.keymetrics.io/)等工具后台执行`npm start`。
 
 注：
 
