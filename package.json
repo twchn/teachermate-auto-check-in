@@ -5,9 +5,11 @@
   "repository": "https://github.com/taoweicn/teachermate-auto-check-in.git",
   "license": "MIT",
   "scripts": {
-    "start": "node core/index.js"
+    "start": "node core/index.js",
+    "chenkin": "pm2 start core/index.js"
   },
   "dependencies": {
+    "pm2": "^2.10.3",
     "request": "^2.85.0"
   }
 }

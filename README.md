@@ -28,10 +28,10 @@
 ```bash
 git clone https://github.com/taoweicn/teachermate-auto-check-in.git  # or download zip
 cd teachermate-auto-check-in  # or open the directory manually
-npm i
-npm start  # or use yarn
+npm i  # or use yarn
+npm start  # just enjoy it!
 ```
-第一次输入参数并运行成功后，可退出程序再使用`nohup`命令或者[pm2](http://pm2.keymetrics.io/)等工具执行`npm start`来后台运行程序。
+第一次输入参数并运行成功后，可退出程序再执行`npm run checkin`来后台运行程序，也可以使用`nohup`命令执行`npm start`。
 
 注：
 
