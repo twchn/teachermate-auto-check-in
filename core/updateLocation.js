@@ -6,8 +6,8 @@ async function updateLocation(prompt = '[可选]请输入位置(经度 纬度)�
   let lat = 0;  // 纬度
   try {
     const inputLocation = await question(prompt);
-    const inputLon = parseInt(inputLocation.split(' ')[0], 10);
-    const inputLat = parseInt(inputLocation.split(' ')[1], 10);
+    const inputLon = parseFloat(inputLocation.split(' ')[0]);
+    const inputLat = parseFloat(inputLocation.split(' ')[1]);
     lon = inputLon >= 0 ? inputLon : 0;
     lat = inputLat >= 0 ? inputLat : 0;
   } catch (e) {
