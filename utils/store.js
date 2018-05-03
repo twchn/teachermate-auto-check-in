@@ -13,10 +13,8 @@ function store(storeData) {
       console.error(err);
       return;
     }
-    if (data) {
-      Object.assign(storeData, JSON.parse(data));
-    }
-    fs.writeFile(path.resolve(__dirname, '../data/data.json'), JSON.stringify(storeData), err => {
+    const result = Object.assign({}, JSON.parse(data), storeData);
+    fs.writeFile(path.resolve(__dirname, '../data/data.json'), JSON.stringify(result), err => {
       if (err) {
         throw err;
       }
