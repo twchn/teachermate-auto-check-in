@@ -1,3 +1,4 @@
+const ora = require('ora');
 const {
   createRequest, getData, logger, delay
 } = require('./utils');
@@ -11,7 +12,7 @@ async function checkin() {
   const location = await getData('location', updateLocation);
   const { lon, lat } = location; // 经度和纬度
 
-  console.log('开始签到中');
+  let spinner = ora('开始签到中').start();
   logger(`${new Date().toLocaleString()} openid: ${openid} 开启签到\n`);
 
   while (true) {
@@ -30,11 +31,13 @@ async function checkin() {
     }
     switch (res.statusCode) {
       case 200:
+        spinner.succeed();
         return body;
       case 401:
-        console.log(`openid${openid}已失效！`);
+        spinner.fail(`openid${openid}已失效！`);
         logger(`${new Date().toLocaleString()} openid: ${openid} 失效\n`);
         openid = await updateOpenid('请重新获取openid并输入：');
+        spinner = ora('开始签到中').start();
         break;
       default:
     }

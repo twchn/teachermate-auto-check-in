@@ -77,23 +77,15 @@ header里加openId
         "id": id,
         "student_id": 学生id,
         "college_id": 学校id,
-        "department_id": ,
+        "department_id": "",
         "class_name": 班级名,
-        "specialty":"",
+        "specialty": "",
         "student_number": 学号,
-        "comment":null,
-        "deleted":0,
-        "org_id":null,
+        "comment": null,
+        "deleted": 0,
+        "org_id": null,
         "college_name": 学校名,
         "department_name": 学院名
     }
 ]
 ```
-
-## 获取历史操作课程列表
-
-**GET https://v18.teachermate.cn/wechat/wechat/guide/his_answer?openid=OPENID**
-
-## 获取课程操作详情
-
-**GET https://v18.teachermate.cn/wechat/wechat/v1/student/get_his_question?course_id=COURSE_ID&student_id=1403560&open_id=OPENID**
