@@ -10,11 +10,11 @@ function question(text) {
       input: process.stdin,
       output: process.stdout
     });
-    rl.question(text, answer => {
+    rl.question(text, (answer) => {
       rl.close();
       resolve(answer);
     });
-  })
+  });
 }
 
 module.exports = {

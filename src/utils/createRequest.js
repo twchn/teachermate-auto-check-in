@@ -24,11 +24,10 @@ function createRequest(
       Accept: '*/*',
       'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
       Connection: 'keep-alive',
-      // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-      Cookie: 'wx_csrf_cookie=d5109d1f5987298e1119628878beac92',
-      Host: 'www.teachermate.com.cn',
-      Origin: 'https://www.teachermate.com.cn',
-      "User-Agent": randomUserAgent()
+      // Cookie: 'wx_csrf_cookie=8f98ba6edb8bcf4739ad9979199f2dc9',
+      Host: host,
+      Origin: `https://${host}`,
+      'User-Agent': randomUserAgent()
     },
     followRedirect: false
   };

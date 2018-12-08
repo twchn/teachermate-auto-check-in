@@ -1,15 +1,21 @@
 {
   "name": "teachermate-auto-check-in",
-  "version": "0.1.0",
-  "main": "index.js",
+  "version": "0.2.0",
   "repository": "https://github.com/taoweicn/teachermate-auto-check-in.git",
   "license": "MIT",
   "scripts": {
-    "start": "node core/index.js",
-    "checkin": "pm2 start core/index.js"
+    "start": "node src/index.js",
+    "lint": "eslint src/** --fix",
+    "checkin": "pm2 start src/index.js"
   },
   "dependencies": {
-    "pm2": "^2.10.3",
-    "request": "^2.85.0"
+    "ora": "^3.0.0",
+    "pm2": "^3.2.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
   }
 }
