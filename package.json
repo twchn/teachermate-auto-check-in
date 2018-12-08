@@ -1,12 +1,12 @@
 {
   "name": "teachermate-auto-check-in",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": "https://github.com/taoweicn/teachermate-auto-check-in.git",
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
     "lint": "eslint src/** --fix",
-    "checkin": "pm2 start core/index.js"
+    "checkin": "pm2 start src/index.js"
   },
   "dependencies": {
     "pm2": "^3.2.2",
